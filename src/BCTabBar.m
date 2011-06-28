@@ -14,16 +14,15 @@
 - (id)initWithFrame:(CGRect)aFrame {
 
 	if (self = [super initWithFrame:aFrame]) {
-		self.backgroundImage = [UIImage imageNamed:@"BCTabBarController.bundle/tab-bar-background.png"];
-		self.arrow = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BCTabBarController.bundle/tab-arrow.png"]] autorelease];
+        self.backgroundColor = [UIColor clearColor];
+		self.backgroundImage = [UIImage imageNamed:@"CJTabBarController.bundle/tab_bar.png"];
+		self.arrow = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CJTabBarController.bundle/tab_bar_arrow.png"]] autorelease];
 		CGRect r = self.arrow.frame;
-		r.origin.y = - (r.size.height - 2);
+		r.origin.y = - (r.size.height - 14); // offset of arrow within transparent area
 		self.arrow.frame = r;
 		[self addSubview:self.arrow];
 		self.userInteractionEnabled = YES;
-		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | 
-		                        UIViewAutoresizingFlexibleTopMargin;
-						 
+		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
 	}
 	
 	return self;
@@ -33,8 +32,8 @@
 	[super drawRect:rect];
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	[self.backgroundImage drawAtPoint:CGPointMake(0, 0)];
-	[[UIColor blackColor] set];
-	CGContextFillRect(context, CGRectMake(0, self.bounds.size.height / 2, self.bounds.size.width, self.bounds.size.height / 2));
+//	[[UIColor blackColor] set];
+//	CGContextFillRect(context, CGRectMake(0, self.bounds.size.height / 2, self.bounds.size.width, self.bounds.size.height / 2));
 }
 
 - (void)setTabs:(NSArray *)array {
@@ -93,6 +92,7 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	CGRect f = self.bounds;
+    f.size.height += 13;
 	f.size.width /= self.tabs.count;
 	f.size.width -= (kTabMargin * (self.tabs.count + 1)) / self.tabs.count;
 	for (BCTab *tab in self.tabs) {

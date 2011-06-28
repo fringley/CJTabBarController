@@ -15,7 +15,7 @@
 	[contentView removeFromSuperview];
 	contentView = aContentView;
 	contentView.frame = CGRectMake(0, 0, self.bounds.size.width, 
-										self.bounds.size.height - self.tabBar.bounds.size.height);
+										self.bounds.size.height - self.tabBar.bounds.size.height + 13);
 
 	[self addSubview:contentView];
 	[self sendSubviewToBack:contentView];
@@ -24,15 +24,15 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	CGRect f = contentView.frame;
-	f.size.height = self.bounds.size.height - self.tabBar.bounds.size.height;
+	f.size.height = self.bounds.size.height - self.tabBar.bounds.size.height + 13;
 	contentView.frame = f;
 	[contentView layoutSubviews];
 }
 
-- (void)drawRect:(CGRect)rect {
-	CGContextRef c = UIGraphicsGetCurrentContext();
-	[RGBCOLOR(230, 230, 230) set];
-	CGContextFillRect(c, self.bounds);
-}
+//- (void)drawRect:(CGRect)rect {
+//	CGContextRef c = UIGraphicsGetCurrentContext();
+//	[RGBCOLOR(230, 230, 230) set];
+//	CGContextFillRect(c, self.bounds);
+//}
 
 @end

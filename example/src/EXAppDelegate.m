@@ -14,8 +14,6 @@
 											  autorelease],
 											 [[[EXViewController alloc] init] autorelease],
 											 [[[EXViewController alloc] init] autorelease],
-											 [[[EXViewController alloc] init] autorelease],
-											 [[[EXViewController alloc] init] autorelease],
 											 nil];
 	[self.window addSubview:self.tabBarController.view];
 	[self.window makeKeyAndVisible];

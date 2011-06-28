@@ -8,7 +8,7 @@
 }
 
 - (NSString *)iconImageName {
-	return @"magnifying-glass.png";
+	return @"icon_about_ripleys.png";
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

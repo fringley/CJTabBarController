@@ -20,8 +20,8 @@
 	self.tabBarView = [[[BCTabBarView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]] autorelease];
 	self.view = self.tabBarView;
 
-	self.tabBar = [[[BCTabBar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 44, 
-															  self.view.bounds.size.width, 44)]
+	self.tabBar = [[[BCTabBar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 51, 
+															  self.view.bounds.size.width, 51)]
 				   autorelease];
 	self.tabBar.delegate = self;
 	
